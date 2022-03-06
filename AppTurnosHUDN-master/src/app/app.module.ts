@@ -1,8 +1,11 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { AppRoutingModule } from './app-routing.module';
+import { FullCalendarModule } from '@fullcalendar/angular';
+
+import { AppComponent } from './app.component';
 
 //modulos
-import { AppRoutingModule } from './app-routing.module';
 import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -10,9 +13,8 @@ import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SharedModule } from './components/shared/shared.module';
 import { DashboardModule} from './components/dashboard/dashboard.module';
-//componentes
 
-import { AppComponent } from './app.component';
+//componentes
 import { ListPersonalComponent } from './components/list-personal/list-personal.component';
 import { CreatePersonalComponent } from './components/create-personal/create-personal.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
@@ -29,18 +31,9 @@ import { provideRemoteConfig,getRemoteConfig } from '@angular/fire/remote-config
 import { provideStorage,getStorage } from '@angular/fire/storage';
 import { MaterialModule } from './material.module';
 
-
 import { ManualModule } from './components/pages/manual/manual.module';
 import { ToolbarComponent } from './components/toolbar/toolbar.component';
 import { CalendarComponent } from './components/calendar/calendar.component';
-import {FullCalendarModule} from 'primeng/fullcalendar';
-
-
-
-
-
-
-
 
 @NgModule({
   declarations: [
@@ -49,11 +42,7 @@ import {FullCalendarModule} from 'primeng/fullcalendar';
     CreatePersonalComponent,
     NavbarComponent,
     ToolbarComponent,
-    CalendarComponent 
-    
-    
-
-  
+    CalendarComponent   
   ],
   imports: [
     BrowserModule,
@@ -65,6 +54,7 @@ import {FullCalendarModule} from 'primeng/fullcalendar';
     ToastrModule.forRoot(),
     BrowserAnimationsModule,
     SharedModule,
+    FullCalendarModule, // for FullCalendar!
     
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideAnalytics(() => getAnalytics()),
@@ -78,10 +68,6 @@ import {FullCalendarModule} from 'primeng/fullcalendar';
     provideStorage(() => getStorage()),
     MaterialModule,
     ManualModule,
-
-    FullCalendarModule
-    
-    
   ],
   providers: [
     ScreenTrackingService,UserTrackingService
