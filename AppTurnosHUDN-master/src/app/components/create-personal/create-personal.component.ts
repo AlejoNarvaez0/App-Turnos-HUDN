@@ -84,7 +84,7 @@ export class CreatePersonalComponent implements OnInit {
     this._personalService.agregarPersonal(personal).then(() =>{
      this.toastr.success('Empleado registrado con exito', 'Registro exitoso');
       this.loading =false;
-      this.router.navigate(['/dashboard']);
+      this.router.navigate(['/list-personal']);
     }).catch (error =>{
       console.log(error);
       this.loading =false;
