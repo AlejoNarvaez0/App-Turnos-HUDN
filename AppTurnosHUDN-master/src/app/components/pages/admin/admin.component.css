@@ -10,7 +10,7 @@
  mat-sidenav{
         width: 200px;
         cursor:pointer;
-        background:rgb(172, 172, 255);
+        background-color:#6EB567;
         position: fixed;
         top: 120px;
         z-index: 1000;
@@ -25,3 +25,8 @@
     .mat-list-item{
         position:relative;
     }
+
+    mat-toolbar
+    {background-color:#6EB567;}
+
+ 
