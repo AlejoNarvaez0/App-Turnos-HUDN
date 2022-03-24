@@ -28,3 +28,11 @@
         $resultado = $stmt->fetchAll(); 
         return $stmt->rowCount();       
     }
+
+    function obtener_todos_turnos(){
+        include('conexion.php');
+        $stmt = $conexion->prepare("SELECT * FROM asignacion");
+        $stmt->execute();
+        $resultado = $stmt->fetchAll(); 
+        return $stmt->rowCount();       
+    }

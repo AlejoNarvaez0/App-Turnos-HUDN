@@ -62,6 +62,7 @@
                         <th>Apellidos</th>
                         <th>Teléfono</th>
                         <th>Email</th>
+                        <th>Tipo de Contrato</th>
                         <th>Imagen</th>
                         <th>Fecha Creación</th>
                         <th>Editar</th>
@@ -107,6 +108,32 @@
                     <label for="email">Ingrese el email</label>
                     <input type="email" name="email" id="email" class="form-control">
                     <br />
+
+                    <!--
+                    <label for="tipoContrato">tipo de contrato</label>
+                    <input type="text" name="tipoContrato" id="tipoContrato" class="form-control">
+                    <br />  -->
+
+                    
+                   
+
+                    <label for="tipoContrato"> Elige un tipo de contrato</label>  <br>
+                    <select name="tipoContrato" id="tipoContrato">
+                        <option value="planta permanente"> Planta Permanente</option>
+                        <option value="planta temporal"> Planta Temporal</option>
+                        <option value="OPS"> OPS</option>
+                    </select>
+                    <br>
+                    
+                    <!--
+
+                    <label for="tipoContrato">Elige un tipo de contrato</label> <br>
+                    <label>Planta Permanente</label><input type="checkbox" id="cbox1" value ="plantaPermanente"></label> <br>
+                    <label>Planta Temporal</label><input type="checkbox" id="cbox2" value ="plantaTemporal"></label>  <br>
+                    <label>OPS</label><input type="checkbox" id="cbox3" value ="ops"></label>
+                    -->
+                    
+                    <br/>
 
                     <label for="imagen">Seleccione una imagen</label>
                     <input type="file" name="imagen_usuario" id="imagen_usuario" class="form-control">
@@ -190,6 +217,9 @@
             var apellidos = $('#apellidos').val();
             var telefono = $('#telefono').val();
             var email = $('#email').val();
+
+            var tipoContrato =$('#tipoContrato').val();
+
             var extension = $('#imagen_usuario').val().split('.').pop().toLowerCase();
             if(extension != '')
             {
@@ -242,6 +272,9 @@
                         $('#apellidos').val(data.apellidos);
                         $('#telefono').val(data.telefono);
                         $('#email').val(data.email);
+
+                        $('#tipoContrato').val(data.tipoContrato);
+                        
                         $('.modal-title').text("Editar Usuario");
                         $('#id_usuario').val(id_usuario);
                         $('#imagen_subida').html(data.imagen_usuario);
