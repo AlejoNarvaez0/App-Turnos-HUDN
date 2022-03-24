@@ -42,11 +42,13 @@
         $sub_array[] = $fila["apellidos"];
         $sub_array[] = $fila["telefono"];
         $sub_array[] = $fila["email"];
+        $sub_array[] = $fila["tipoContrato"];
         $sub_array[] = $imagen;
         $sub_array[] = $fila["fecha_creacion"];
         $sub_array[] = '<button type="button" name="editar" id="'.$fila["id"].'" class="btn btn-warning btn-xs editar">Editar</button>';
         $sub_array[] = '<button type="button" name="borrar" id="'.$fila["id"].'" class="btn btn-danger btn-xs borrar">Borrar</button>';
         $sub_array[] = '<button type "button" name="calendario" id="'.$fila["id"].'" class ="btn btn-secondary btn-xs calendario">Calendario</button>';
+        
         $datos[] = $sub_array;
 
     }

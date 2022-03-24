@@ -8,7 +8,7 @@ if ($_POST["operacion"] == "Crear") {
     if ($_FILES["imagen_usuario"]["name"] != '') {
         $imagen = subir_imagen();
     }
-    $stmt = $conexion->prepare("INSERT INTO usuarios(cedula,nombre, apellidos, imagen, telefono, email)VALUES(:cedula,:nombre, :apellidos, :imagen, :telefono, :email)");
+    $stmt = $conexion->prepare("INSERT INTO usuarios(cedula,nombre, apellidos, imagen, telefono, email, tipoContrato)VALUES(:cedula,:nombre, :apellidos, :imagen, :telefono, :email, :tipoContrato)");
 
     $resultado = $stmt->execute(
         array(
@@ -17,7 +17,11 @@ if ($_POST["operacion"] == "Crear") {
             ':apellidos'    => $_POST["apellidos"],
             ':telefono'    => $_POST["telefono"],
             ':email'    => $_POST["email"],
+
+            ':tipoContrato' => $_POST["tipoContrato"],
+            
             ':imagen'    => $imagen
+
         )
     );
 
@@ -36,7 +40,7 @@ if ($_POST["operacion"] == "Editar") {
     }
 
 
-    $stmt = $conexion->prepare("UPDATE usuarios SET cedula=:cedula, nombre=:nombre, apellidos=:apellidos, imagen=:imagen, telefono=:telefono, email=:email WHERE id = :id");
+    $stmt = $conexion->prepare("UPDATE usuarios SET cedula=:cedula, nombre=:nombre, apellidos=:apellidos, imagen=:imagen, telefono=:telefono, email=:email,tipoContrato =:tipoContrato WHERE id = :id");
 
     $resultado = $stmt->execute(
         array(
@@ -45,6 +49,9 @@ if ($_POST["operacion"] == "Editar") {
             ':apellidos'    => $_POST["apellidos"],
             ':telefono'    => $_POST["telefono"],
             ':email'    => $_POST["email"],
+
+            ':tipoContrato' => $_POST["tipoContrato"],
+            
             ':imagen'    => $imagen,
             ':id'    => $_POST["id_usuario"]
         )
